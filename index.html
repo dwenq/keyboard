@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>沪教版课本 · 键盘打字练习</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- 顶部导航：标题 + 科目切换 -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">⌨️</span>
+      <div class="brand-text">
+        <h1>沪教版课本打字</h1>
+        <p>英语词汇 / KET / Power Up / 语文拼音 / 古诗课文 · 过关练习</p>
+      </div>
+    </div>
+    <div class="subject-switch" role="tablist">
+      <label class="radio-card">
+        <input type="radio" name="subject" id="subjectEn" checked />
+        <span class="radio-body">
+          <b>英语</b>
+          <small>单词 / 字母输入</small>
+        </span>
+      </label>
+      <label class="radio-card">
+        <input type="radio" name="subject" id="subjectZh" />
+        <span class="radio-body">
+          <b>语文</b>
+          <small>拼音 / 课文打字</small>
+        </span>
+      </label>
+      <label class="radio-card">
+        <input type="radio" name="subject" id="subjectPu" />
+        <span class="radio-body">
+          <b>Power Up</b>
+          <small>剑桥 · 单词 / 句型</small>
+        </span>
+      </label>
+    </div>
+    <div class="user-chip hidden" id="userChip">
+      <span class="user-phone" id="userPhone"></span>
+      <button class="btn mini" id="logoutBtn">退出</button>
+    </div>
+  </header>
+
+  <!-- 手机号登录遮罩 -->
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-card">
+      <div class="login-logo">⌨️</div>
+      <h1>沪教版课本打字</h1>
+      <p class="login-sub">登录后同步过关进度、记忆复习与练习记录</p>
+      <label class="login-field">
+        <span>手机号</span>
+        <input type="tel" id="loginPhone" maxlength="11" placeholder="请输入 11 位手机号" autocomplete="off" />
+      </label>
+      <label class="login-field">
+        <span>短信验证码</span>
+        <div class="login-code-row">
+          <input type="text" id="loginCode" maxlength="6" placeholder="示例码 123456" />
+          <button type="button" class="btn secondary" id="sendCodeBtn">发送验证码</button>
+        </div>
+      </label>
+      <p class="login-hint" id="loginHint">演示环境：验证码固定为 <b>123456</b></p>
+      <button class="btn primary login-submit" id="loginSubmit">登录</button>
+    </div>
+  </div>
+
+  <main class="layout hidden" id="layoutMain">
+    <!-- 左侧：范围设置面板 -->
+    <aside id="setupPanel" class="setup-panel">
+      <h2 id="practiceTitle">英语单词打字练习</h2>
+      <div id="scope" class="scope"></div>
+      <p class="tip">提示：无需外接输入法，直接使用电脑键盘键入字母即可；词库来自沪教版课本词表。</p>
+    </aside>
+
+    <!-- 右侧：练习区域 -->
+    <section class="practice-panel">
+      <div id="practicePanel" class="practice-panel-wrap hidden">
+        <div class="panel-bar">
+          <button id="backBtn" class="btn link">← 返回设置</button>
+        </div>
+        <div id="target" class="target"></div>
+        <div id="kb-wrap" class="kb-wrap">
+          <div id="finger-hint" class="finger-hint" data-finger-hint></div>
+          <div id="keyboard" class="keyboard"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    本页面可离线打开 · 键盘练习适配标准 QWERTY 指法
+  </footer>
+
+  <!-- 核心工具 -->
+  <script src="js/core.js"></script>
+  <script src="js/pinyinEngine.js"></script>
+  <script src="js/visualKeyboard.js"></script>
+  <!-- 用户与学习系统 -->
+  <script src="js/storage.js"></script>
+  <script src="js/memory.js"></script>
+  <script src="js/course.js"></script>
+  <!-- 词库数据 -->
+  <script src="js/data/englishWords.js"></script>
+  <script src="js/data/ketWords.js"></script>
+  <script src="js/data/powerupWords.js"></script>
+  <script src="js/data/chineseChars.js"></script>
+  <script src="js/data/chineseTexts.js"></script>
+  <script src="js/data/ipa.js"></script>
+  <!-- 发音助手 -->
+  <script src="js/speech.js"></script>
+  <!-- 练习模式 -->
+  <script src="js/modes/englishMode.js"></script>
+  <script src="js/modes/dictationMode.js"></script>
+  <script src="js/modes/pinyinMode.js"></script>
+  <script src="js/modes/textMode.js"></script>
+  <!-- 主应用 -->
+  <script src="js/app.js"></script>
+</body>
+</html>
